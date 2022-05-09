@@ -1,4 +1,6 @@
-
+<?php
+include_once __DIR__ . './api/api.php';
+?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,25 +11,20 @@
     <!-- bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
-<body>
-    <div class="container">
-        <div class="row">
-        <?php    
-            include_once __DIR__ . '/api/api.php';    
-            foreach($database as $disk){
-            echo $disk['title'];            
-        }
-    ?>
-    <!-- 
-                    <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+<body class="bg-dark">
+    <div class="container p-1">
+        <div class="row justify-content-center">
+        <?php foreach($database as $disk): ?>
+            <div class="card bg-secondary me-3 mb-3" style="width: 20rem;">
+            <img src="<?= $disk['poster'] ?>" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h5 class="card-title text-center fw-balder text-white"><?= $disk['title'] ?></h5>
+                <p class="card-text text-light text-center"><?= $disk['author'] ?></p>
+                <p class="card-test text-light text-center"><?= $disk['year'] ?></p>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
             </div>
-            </div>
-     -->
+            </div> 
+        <?php endforeach; ?>
         </div>
     </div>
 </body>

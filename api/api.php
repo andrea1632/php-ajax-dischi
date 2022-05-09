@@ -44,9 +44,6 @@
         ]
     ];
 
-    header('Content-Type: application/json');
-    echo json_encode([
-        "response" => "$albums",
-        "success" => true
-      ]);
+/*    header('Content-Type: application/json');
+    echo json_encode($database); */
 ?>
